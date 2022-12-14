@@ -7,7 +7,7 @@ Octobay uses this action as part of its CI/CD pipline to delete temporary reposi
 ## Usage
 
 ```yaml
-uses: octobay/delete-repository-action@v1
+uses: f1lander/delete-repository-action@v1
 with:
   name: 'owner/repository'
   access-token: 'accessTokenWithRepoOrOrgAdminScope'
