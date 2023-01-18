@@ -1,19 +1,26 @@
+/**
+ * @name Delete repository
+ * @description Deletes a repository.
+ * @author @f1lander
+ */
 const core = require('@actions/core');
-const axios = require('axios');
+const { Octokit } = require("@octokit/core");
 
 async function run() {
   try {
-    const name = core.getInput('name');
+    const owner = core.getInput('owner');
+    const repo = core.getInput('name');
     const accessToken = core.getInput('access-token');
 
-    await axios.delete(
-      'https://api.github.com/repos/' + name,
-      {
-        headers: {
-          Authorization: 'token ' + accessToken
-        }
-      }
-    )
+    const octokit = new Octokit({
+      auth: accessToken
+    })
+    
+    await octokit.request('DELETE /repos/{owner}/{repo}', {
+      owner,
+      repo
+    });
+
     core.info('Repository deleted.');
   } catch (error) {
     core.setFailed(error.message);
