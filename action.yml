@@ -1,7 +1,10 @@
 name: 'Delete Repository'
 description: 'Delete a repository from your workflows.'
 inputs:
-  name:
+  owner:
+    description: 'github username or organization'
+    required: true
+  repo:
     description: 'name of repository to delete'
     required: true
   access-token:
