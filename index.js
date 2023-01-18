@@ -10,7 +10,7 @@ async function run() {
   try {
     const owner = core.getInput('owner');
     const repo = core.getInput('name');
-    const accessToken = core.getInput('access-token');
+    const accessToken = core.getInput('token');
 
     const octokit = new Octokit({
       auth: accessToken

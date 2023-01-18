@@ -7,7 +7,7 @@ inputs:
   repo:
     description: 'name of repository to delete'
     required: true
-  access-token:
+  token:
     description: 'access token with repo scope'
     required: true
 runs:
